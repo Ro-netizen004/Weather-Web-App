@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import WeatherDetails from "./WeatherDetails";
 import HourlyForecastCard from "./HourlyForecast";
-const API_key = import.meta.env.VITE_REACT_APP_API_KEY;
+const API_key = import.meta.env.VITE_API_KEY;
 
 function toTitleCase(str) {
   return str

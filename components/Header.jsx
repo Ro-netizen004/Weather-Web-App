@@ -6,7 +6,7 @@ import { ThemeContext } from '../App';
 import { useState, useEffect } from 'react';
 import lightmode from "../images/sun.png"
 import darkmode from "../images/moon.png"
-const API_key = import.meta.env.VITE_REACT_APP_API_KEY;
+const API_key = import.meta.env.VITE_API_KEY;
 
 export default function Header({city, setCity, unit, setUnit}) {
   const { theme } = useContext(ThemeContext);
