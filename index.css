@@ -1,0 +1,555 @@
+body{
+  padding:0;
+  margin: 0;
+}
+
+#dark {
+  background-color: #121212;
+  color: #eee;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+#light {
+  background-color: #f9f9f9;
+  color: #111;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Header */
+#dark .header {
+  color: #ffffff;
+  background-color: #141313;
+  padding: 20px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#light .header {
+  color: #222222;
+  background-color: #f0f0f0;
+  padding: 20px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Location container */
+#dark .header .location,
+#light .header .location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+#dark .location p {
+  margin: 0;
+  color: #ddd;
+}
+
+#light .location p {
+  margin: 0;
+  color: #222;
+}
+
+.make-bold {
+  font-weight: 500;
+}
+
+#dark .search-wrapper {
+  position: relative;
+  width: 400px; /* adjust width as needed */
+}
+
+/* Search input */
+#dark .search-box {
+  width: 400px;
+  padding: 10px 40px 10px 12px; /* space for icon */
+  font-size: 1rem;
+  background-color: #2c2c2c;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 30px;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+#dark .search-box::placeholder {
+  color: #aaa;
+}
+
+#dark .search-box:focus {
+  outline: none;
+  border-color: #fff;
+}
+
+/* Search icon */
+#dark .search-wrapper svg {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+#dark button {
+  background-color: #2c2c2c;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#dark button:hover {
+  background-color: #3d3d3d;
+}
+
+
+#light .search-wrapper {
+  position: relative;
+  width: 400px; /* same as dark mode */
+}
+
+/* Search input */
+#light .search-box {
+  width: 400px;
+  padding: 10px 40px 10px 12px; /* space for icon */
+  font-size: 1rem;
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  transition: border 0.3s ease;
+  box-sizing: border-box;
+}
+
+#light .search-box::placeholder {
+  color: #666;
+}
+
+#light .search-box:focus {
+  outline: none;
+  border-color: #111;
+}
+
+/* Search icon */
+#light .search-wrapper svg {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+#light button {
+  background-color: #fff;
+  color: #111;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#light button:hover {
+  background-color: #f2f2f2;
+}
+
+
+.theme-changer {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex; /* or inline-block */
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-image {
+  width: 32px;  /* adjust size as needed */
+  height: 32px;
+  display: block;
+  pointer-events: none; /* so clicks register on button */
+  user-select: none;
+  margin-right: 10px;
+}
+
+.button-container{
+  display:flex;
+  align-items: center;
+  gap:10px;
+}
+
+.search-button-container{
+  display:flex;
+  gap:5px;
+}
+
+/* Base Card Styles (shared) */
+.weather-card {
+  width: 250px;
+  border-radius: 16px;
+  padding: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* LIGHT MODE */
+#light .weather-card {
+  background-color: #ffffff; /* keep white background */
+  color: #111;
+  border: 1px solid rgba(0, 0, 0, 0.1); /* subtle but visible */
+}
+
+#light .weather-header {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#light .weather-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+#light .weather-header p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#light .weather-body {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#light .weather-icon img {
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+#light .weather-info {
+  margin-left: 15px;
+  text-align: left;
+}
+
+#light .weather-info h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #111;
+}
+
+#light .weather-info p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+#light .weather-footer {
+  text-align: left;
+  font-size: 1.4rem;
+  color: #444;
+}
+
+/* DARK MODE */
+#dark .weather-card {
+  background-color: #100f0f; /* keep dark card */
+  color: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* subtle light contrast */
+}
+
+#dark .weather-header {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+#dark .weather-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+#dark .weather-header p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+#dark .weather-body {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#dark .weather-icon img {
+  width: 120px;
+  height: 120px;
+}
+
+#dark .weather-info {
+  margin-left: 15px;
+  text-align: left;
+}
+
+#dark .weather-info h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #eee;
+}
+
+#dark .weather-info p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+#dark .weather-footer {
+  text-align: left;
+  font-size: 1.4rem;
+  color: #aaa;
+}
+
+/* 
+  Detailed Weather data starts here
+*/
+
+.weather-details-card {
+  width: 230px;
+  height: 140px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lucida Sans', sans-serif;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.weather-details-card p {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Light Mode */
+#light .weather-details-card {
+  background-color: white;
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Dark Mode */
+#dark .weather-details-card {
+  background-color: #100f0f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #eee;
+
+}
+
+/* Light & Dark Mode styles  */
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.weather-label {
+  font-size: 1rem;
+  font-weight: 100;
+  color: inherit;
+}
+
+.weather-details-card p {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.weather-data-layout {
+  display: flex;
+  align-items: center;        /* centers child content horizontally */
+  justify-content: center;    /* centers vertically if container has height */
+  gap: 20px;                  /* space between main card and detail cards */
+  padding: 40px 0;    
+}
+
+.weather-details-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns */
+  gap: 5px;
+  margin-bottom: 5px;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+
+
+.forecast-scroll-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.forecast-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.scroll-button {
+  background: #ffffffcc;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-button.left {
+  margin-right: 0.5rem;
+}
+
+.scroll-button.right {
+  margin-left: 0.5rem;
+}
+
+h2{
+  text-align: center;
+}
+
+
+/*
+ FOOTER
+*/
+
+#dark.footer {
+  background-color: #1c1c1c;
+  color: #eee;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #444;
+  font-family: 'Lucida Sans', 'Lucida Grande', sans-serif;
+}
+
+#light.footer {
+  background-color: #f0f0f0;
+  color: #111;
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #ccc;
+  font-family: 'Lucida Sans', 'Lucida Grande', sans-serif;
+}
+
+#dark.footer a,
+#light.footer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#dark .forecast-container {
+  scrollbar-color: #555 #121212;
+}
+
+#dark .forecast-container::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+#dark .forecast-container::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+
+
+
+/* Shared styles for both themes */
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  border: 1px solid;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Light mode */
+#light .suggestions-list {
+  background-color: #ffffff;
+  border-color: #ccc;
+}
+
+#light .suggestions-list li {
+  color: #333;
+}
+
+#light .suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Dark mode */
+#dark .suggestions-list {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+#dark .suggestions-list li {
+  color: #ddd;
+}
+
+#dark .suggestions-list li:hover {
+  background-color: #333;
+}
